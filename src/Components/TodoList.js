@@ -6,13 +6,15 @@ import CustomToggle from "./CustomToggle";
 import Todo from "./Todo";
 import { useTodos } from "../contexts/TodosContext";
 import AddAndEditTaskDialog from "./AddTaskDialog";
+import EmptyTask from "./EmptyTask";
 
 // Components
 
 export default function TodoList() {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const { filteredTodos } = useTodos();
+  const { filteredTodos, filter } = useTodos();
 
+  console.log(filteredTodos);
   return (
     <Stack style={{ width: "100%", padding: "64px" }} spacing={4}>
       <AddAndEditTaskDialog
@@ -41,11 +43,23 @@ export default function TodoList() {
       </Stack>
 
       <CustomToggle />
-      <Stack spacing={2}>
-        {filteredTodos.map((task) => (
-          <Todo key={task.id} task={task} />
-        ))}
-      </Stack>
+      {filteredTodos.length !== 0 ? (
+        <Stack spacing={2}>
+          {filteredTodos.map((task) => (
+            <Todo key={task.id} task={task} />
+          ))}
+        </Stack>
+      ) : (
+        <EmptyTask
+          msg={
+            filter === "active"
+              ? "لا يوجد مهمات غير منجزة، عمل رائع!"
+              : filter === "completed"
+              ? "لا يوجد مهام مكتملة، واصل العمل!"
+              : "لا يوجد مهمات بعد، اضف مهمتكم الاولى للبدء!"
+          }
+        />
+      )}
     </Stack>
   );
 }
