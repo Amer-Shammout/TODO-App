@@ -1,6 +1,6 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { Button, Stack } from "@mui/material";
+import { Button, CircularProgress, Stack } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import CustomToggle from "./CustomToggle";
 import Todo from "./Todo";
@@ -12,7 +12,7 @@ import EmptyTask from "./EmptyTask";
 
 export default function TodoList() {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const { filteredTodos, filter } = useTodos();
+  const { filteredTodos, filter, isLoaded } = useTodos();
 
   console.log(filteredTodos);
   return (
@@ -43,7 +43,9 @@ export default function TodoList() {
       </Stack>
 
       <CustomToggle />
-      {filteredTodos.length !== 0 ? (
+      {!isLoaded ? (
+        <CircularProgress />
+      ) : filteredTodos.length !== 0 ? (
         <Stack spacing={2}>
           {filteredTodos.map((task) => (
             <Todo key={task.id} task={task} />

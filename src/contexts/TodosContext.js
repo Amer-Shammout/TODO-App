@@ -75,6 +75,7 @@ export function TodosProvider({ children }) {
     setFilter,
     activeCount,
     completedCount,
+    isLoaded
   };
 
   return (
