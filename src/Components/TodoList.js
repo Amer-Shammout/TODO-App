@@ -1,6 +1,6 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { Button, CircularProgress, Stack } from "@mui/material";
+import { Box, Button, CircularProgress, Stack } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import CustomToggle from "./CustomToggle";
 import Todo from "./Todo";
@@ -44,7 +44,16 @@ export default function TodoList() {
 
       <CustomToggle />
       {!isLoaded ? (
-        <CircularProgress />
+        <Box
+          sx={{
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            height:"100vh"
+          }}
+        >
+          <CircularProgress />
+        </Box>
       ) : filteredTodos.length !== 0 ? (
         <Stack spacing={2}>
           {filteredTodos.map((task) => (
