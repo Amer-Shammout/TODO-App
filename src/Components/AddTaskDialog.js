@@ -51,7 +51,7 @@ export const BootstrapInput = styled(InputBase)(({ theme }) => ({
     ].join(","),
 
     "&:focus": {
-      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      // boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
       borderColor: theme.palette.primary.main,
     },
 
@@ -61,7 +61,6 @@ export const BootstrapInput = styled(InputBase)(({ theme }) => ({
     }),
   },
 
-  // ✅ تعديل صحيح للخطأ
   "&.MuiInputBase-root.Mui-error .MuiInputBase-input": {
     borderColor: theme.palette.error.main,
   },
@@ -195,7 +194,6 @@ export default function AddAndEditTaskDialog({
             <BootstrapInput
               placeholder="وصف المهمة"
               id="task-subtitle"
-              autoFocus
               required
               name="subtitle"
               error={errors.subtitle}
@@ -207,7 +205,13 @@ export default function AddAndEditTaskDialog({
           </FormControl>
         </form>
       </DialogContent>
-      <DialogActions sx={{ gap: "12px" }}>
+      <DialogActions
+        sx={{
+          gap: 1.5,
+          px: 3,
+          pb: 3
+        }}
+      >
         <Button
           variant="outlined"
           onClick={() => {

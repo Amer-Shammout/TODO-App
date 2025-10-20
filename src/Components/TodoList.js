@@ -76,6 +76,7 @@ export default function TodoList() {
               ? "لا يوجد مهام مكتملة، واصل العمل!"
               : "لا يوجد مهمات بعد، اضف مهمتك الاولى للبدء!"
           }
+          filter={filter}
         />
       )}
     </Stack>
