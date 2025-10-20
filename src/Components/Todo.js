@@ -10,6 +10,7 @@ import { useTodos } from "../contexts/TodosContext";
 import { useState } from "react";
 import CustomDeleteDialog from "./ConfirmDeleteDialog";
 import AddAndEditTaskDialog from "./AddTaskDialog";
+import { toast } from "react-toastify";
 
 export default function Todo({ task }) {
   const { toggleTodo, deleteTodo } = useTodos();
@@ -24,7 +25,10 @@ export default function Todo({ task }) {
         onClose={() => {
           setAlertIsOpen(false);
         }}
-        handleDelete={() => deleteTodo(id)}
+        handleDelete={() => {
+          deleteTodo(id);
+          toast.success("تم حذف المهمة بنجاح!");
+        }}
       />
       <AddAndEditTaskDialog
         open={isEditOpen}

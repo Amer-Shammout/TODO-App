@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
+import { toast } from "react-toastify";
 
 export const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -97,6 +98,10 @@ export default function AddAndEditTaskDialog({
       const newTodo = { id: uuidv4(), title, subtitle, isFinished: false };
       isEdit ? editTodo(id, title, subtitle) : addTodo(newTodo);
 
+      toast.success(
+        isEdit ? "تم تعديل المهمة بنجاح!" : "تم اضافة المهمة بنجاح!"
+      );
+
       onClose();
     }
   };
@@ -113,7 +118,7 @@ export default function AddAndEditTaskDialog({
       fullWidth
     >
       <DialogTitle fontWeight="700" fontSize="24px">
-       {!isEdit ? "إضافة مهمة جديدة" : "تعديل مهمة"}
+        {!isEdit ? "إضافة مهمة جديدة" : "تعديل مهمة"}
       </DialogTitle>
       <IconButton
         aria-label="close"
