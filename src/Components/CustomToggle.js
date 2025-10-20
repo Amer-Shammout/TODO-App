@@ -39,8 +39,8 @@ export default function CustomToggle() {
   return (
     <CustomToggleButtonGroup value={filter} exclusive onChange={handleChange}>
       <ToggleButton value="all">الكل</ToggleButton>
-      <ToggleButton value="completed">المنجز ({completedCount})</ToggleButton>
       <ToggleButton value="active">غير المنجز ({activeCount})</ToggleButton>
+      <ToggleButton value="completed">المنجز ({completedCount})</ToggleButton>
     </CustomToggleButtonGroup>
   );
 }
