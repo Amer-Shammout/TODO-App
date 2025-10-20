@@ -10,11 +10,11 @@ export default function EmptyTask({ msg }) {
         alignItems: "center",
         justifyContent: "center",
         gap: "16px",
-        height:"100vh"
+        height: "100vh",
       }}
     >
       <TaskIcon sx={{ width: 64, height: 64, color: "rgba(0,0,0,0.7)" }} />
-      <Typography color="rgba(0,0,0,0.7)">{msg}</Typography>
+      <Typography color="rgba(0,0,0,0.7)" textAlign={"center"}>{msg}</Typography>
     </div>
   );
 }

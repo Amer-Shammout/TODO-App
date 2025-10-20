@@ -16,7 +16,14 @@ export default function TodoList() {
 
   console.log(filteredTodos);
   return (
-    <Stack style={{ width: "100%", padding: "64px" }} spacing={4}>
+    <Stack
+      sx={{
+        width: "100%",
+        px: { xs: 2, sm: 4, md: 8 },
+        py: { xs: 2, sm: 4 },
+      }}
+      spacing={4}
+    >
       <AddAndEditTaskDialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
@@ -49,7 +56,7 @@ export default function TodoList() {
             alignItems: "center",
             justifyContent: "center",
             display: "flex",
-            height:"100vh"
+            height: "100vh",
           }}
         >
           <CircularProgress />
