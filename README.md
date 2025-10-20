@@ -6,6 +6,9 @@ This project demonstrates how to manage global state using **React Context**, op
 
 ---
 
+## 🌐 Live Demo  
+🔗 [Visit the Live Website](https://todo-my-tasks.netlify.app/)
+
 ## 🚀 Features
 
 - ✅ Add, edit, delete, and mark tasks as completed  
@@ -16,6 +19,15 @@ This project demonstrates how to manage global state using **React Context**, op
 - ⚡ Optimized rendering with **useMemo**  
 - 🔄 Local synchronization using **useEffect**  
 - 🧠 Demonstrates clean architecture and reusable custom hooks  
+
+---
+
+## 📸 Preview
+
+<div style="display:flex;flex-direction:row;justify-content:center;align-items:flex-start;gap:4px">
+  <img src="./public/desktop.png" alt="React Todo Manager - Desktop View" width="700" />
+  <img src="./public/mobile.jpg" alt="React Todo Manager - Mobile View" width="300" />
+</div>
 
 ---
 
@@ -82,12 +94,6 @@ This project is designed for developers who want to:
 
 ---
 
-## 📸 Preview
-
-*(You can add a screenshot here once available)*  
-`![App Screenshot](./preview.png)`
-
----
 
 ## 📜 License
 
