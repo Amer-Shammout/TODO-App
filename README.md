@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# 📝 React Todo Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**React Todo Manager** — a simple yet powerful task management web app built with **React**, featuring real-time updates, local data persistence, and a clean, minimal UI.
 
-## Available Scripts
+This project demonstrates how to manage global state using **React Context**, optimize performance with **useMemo**, and handle side effects with **useEffect** — making it an ideal learning resource for modern React patterns.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ Add, edit, delete, and mark tasks as completed  
+- 🔁 Real-time UI updates with efficient state management  
+- 💾 LocalStorage persistence — your tasks remain after page reload  
+- 🎨 Clean and responsive design built with **Material UI (MUI)**  
+- 🔍 Filter tasks by **All**, **Active**, or **Completed**  
+- ⚡ Optimized rendering with **useMemo**  
+- 🔄 Local synchronization using **useEffect**  
+- 🧠 Demonstrates clean architecture and reusable custom hooks  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React (Hooks + Context API)**
+- **Material UI (MUI)**
+- **JavaScript (ES6+)**
+- **LocalStorage API**
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+ ├── components/
+ │   ├── Todo.jsx
+ │   ├── TodoList.jsx
+ │   ├── AddAndEditTaskDialog.jsx
+ │   └── CustomToggle.jsx
+ ├── context/
+ │   └── TodosContext.jsx
+ ├── App.jsx
+ └── index.js
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Installation & Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/react-todo-manager.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate to the project directory:
+   ```bash
+   cd react-todo-manager
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-## Learn More
+Your app should now be running on **http://localhost:3000**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧠 Learning Goals
 
-### Code Splitting
+This project is designed for developers who want to:
+- Learn **React Context API** for global state management  
+- Understand how **useEffect** handles side effects and local data syncing  
+- Practice performance optimization using **useMemo**  
+- Explore clean, maintainable component architecture  
+- Gain hands-on experience with **Material UI**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📸 Preview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*(You can add a screenshot here once available)*  
+`![App Screenshot](./preview.png)`
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📜 License
 
-### Advanced Configuration
+This project is open-source and available under the **MIT License**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 👨‍💻 Author
+**Amer Shammout**  
+Frontend Developer | React & Flutter Enthusiast  
+🔗 [LinkedIn](https://www.linkedin.com/in/amer-shammout-04012b26b/)
