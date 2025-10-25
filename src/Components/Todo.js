@@ -11,8 +11,6 @@ import { useTodos } from "../contexts/TodosContext";
 export default function Todo({ task, openDelete, openEdit }) {
   const { toggleTodo } = useTodos();
   const { id, title, subtitle, isFinished } = task;
-  // const [isAlertOpen, setAlertIsOpen] = useState(false);
-  // const [isEditOpen, setEditIsOpen] = useState(false);
 
   return (
     <>
@@ -31,7 +29,16 @@ export default function Todo({ task, openDelete, openEdit }) {
       >
         <CardContent sx={{ flex: 2, minWidth: 0 }}>
           <Stack direction="row" alignItems="start" minWidth={0}>
-            <Checkbox checked={isFinished} onChange={() => toggleTodo(id)} />
+            <Checkbox
+              checked={isFinished}
+              onChange={() => {
+                toggleTodo(id);
+                if (!isFinished) {
+                  const audio = new Audio("/sounds/success.wav");
+                  audio.play().catch(() => {});
+                }
+              }}
+            />
             <Stack direction="column" spacing={1} flex={1} minWidth={0}>
               <Typography
                 variant="h5"
