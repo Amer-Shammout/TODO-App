@@ -7,12 +7,18 @@ import Todo from "./Todo";
 import { useTodos } from "../contexts/TodosContext";
 import AddAndEditTaskDialog from "./AddTaskDialog";
 import EmptyTask from "./EmptyTask";
+import CustomDeleteDialog from "./ConfirmDeleteDialog";
+import { toast } from "react-toastify";
 
 // Components
 
 export default function TodoList() {
   const [openDialog, setOpenDialog] = React.useState(false);
-  const { filteredTodos, filter, isLoaded } = useTodos();
+  const [openEditDialog, setOpenEditDialog] = React.useState(false);
+  const [isAlertOpen, setAlertIsOpen] = React.useState(false);
+  const [dialgoTodo, setDialogTodo] = React.useState({});
+
+  const { filteredTodos, filter, isLoaded, deleteTodo } = useTodos();
 
   console.log(filteredTodos);
   return (
@@ -27,6 +33,23 @@ export default function TodoList() {
       <AddAndEditTaskDialog
         open={openDialog}
         onClose={() => setOpenDialog(false)}
+      />
+      <AddAndEditTaskDialog
+        open={openEditDialog}
+        onClose={() => setOpenEditDialog(false)}
+        isEdit={true}
+        defaultValues={dialgoTodo}
+      />
+      <CustomDeleteDialog
+        open={isAlertOpen}
+        onClose={() => {
+          setAlertIsOpen(false);
+        }}
+        handleDelete={() => {
+          deleteTodo(dialgoTodo.id);
+          toast.success("تم حذف المهمة بنجاح!");
+          setAlertIsOpen(false);
+        }}
       />
 
       <Stack
@@ -64,7 +87,18 @@ export default function TodoList() {
       ) : filteredTodos.length !== 0 ? (
         <Stack spacing={2}>
           {filteredTodos.map((task) => (
-            <Todo key={task.id} task={task} />
+            <Todo
+              key={task.id}
+              task={task}
+              openEdit={(todo) => {
+                setDialogTodo(todo);
+                setOpenEditDialog(true);
+              }}
+              openDelete={(todo) => {
+                setDialogTodo(task);
+                setAlertIsOpen(true);
+              }}
+            />
           ))}
         </Stack>
       ) : (

@@ -7,35 +7,15 @@ import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useTodos } from "../contexts/TodosContext";
-import { useState } from "react";
-import CustomDeleteDialog from "./ConfirmDeleteDialog";
-import AddAndEditTaskDialog from "./AddTaskDialog";
-import { toast } from "react-toastify";
 
-export default function Todo({ task }) {
-  const { toggleTodo, deleteTodo } = useTodos();
+export default function Todo({ task, openDelete, openEdit }) {
+  const { toggleTodo } = useTodos();
   const { id, title, subtitle, isFinished } = task;
-  const [isAlertOpen, setAlertIsOpen] = useState(false);
-  const [isEditOpen, setEditIsOpen] = useState(false);
+  // const [isAlertOpen, setAlertIsOpen] = useState(false);
+  // const [isEditOpen, setEditIsOpen] = useState(false);
 
   return (
     <>
-      <CustomDeleteDialog
-        open={isAlertOpen}
-        onClose={() => {
-          setAlertIsOpen(false);
-        }}
-        handleDelete={() => {
-          deleteTodo(id);
-          toast.success("تم حذف المهمة بنجاح!");
-        }}
-      />
-      <AddAndEditTaskDialog
-        open={isEditOpen}
-        onClose={() => setEditIsOpen(false)}
-        defaultValues={{ id, title, subtitle }}
-        isEdit={true}
-      />
       <Card
         className="todo"
         variant="elevation"
@@ -82,11 +62,11 @@ export default function Todo({ task }) {
           <IconButton
             aria-label="delete"
             color="error"
-            onClick={() => setAlertIsOpen(true)}
+            onClick={() => openDelete(task)}
           >
             <DeleteIcon />
           </IconButton>
-          <IconButton aria-label="edit" onClick={() => setEditIsOpen(true)}>
+          <IconButton aria-label="edit" onClick={() => openEdit(task)}>
             <EditIcon />
           </IconButton>
         </CardActions>
